@@ -1,0 +1,10 @@
+[package]
+name = "sdk"
+version = "0.0.0"
+edition = "2024"
+
+[lib]
+crate-type = ["cdylib"]
+
+[build-dependencies]
+cbindgen.workspace = true

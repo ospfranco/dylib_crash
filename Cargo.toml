@@ -1,0 +1,22 @@
+[workspace]
+resolver = "3"
+members = ["sdk"]
+
+[profile.dev]
+incremental = true
+
+# Default release profile
+[profile.lib]
+inherits = "release"
+strip = "symbols"
+lto = true
+opt-level = "z"
+codegen-units = 1
+
+[profile.bin]
+inherits = "release"
+opt-level = 3
+incremental = true
+
+[workspace.dependencies]
+cbindgen = "0.29.2"

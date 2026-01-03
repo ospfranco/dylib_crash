@@ -1,0 +1,31 @@
+min_version = "2025.10.2"
+
+[tools]
+bun = "latest"
+rust = "stable"
+"cargo:cargo-ndk" = "latest"
+"cargo:cargo-set-version" = "latest"
+"cargo:cargo-nextest" = "latest"
+
+[settings]
+lockfile = true
+experimental = true
+
+[hooks]
+postinstall = "bun install && bun ./scripts/assert_rust_targets.mts"
+
+[tasks]
+build = "bun ./scripts/build.mts"
+build-cli = "bun ./scripts/build.cli.mts"
+test = "bun ./scripts/test.mts"
+lint = "bun ./scripts/lint.mts"
+format = "bun ./scripts/format.mts"
+fix = "bun ./scripts/fix.mts"
+update-rn = "bun ./scripts/update.rn.mts"
+update-flutter = "bun ./scripts/update.flutter.mts"
+dev-server = "bun run --watch scripts/dev-server.mts"
+clean = "rm -rf ./target"
+update-submodules = "bun ./scripts/update-submodules.mts"
+build-device = "bun ./scripts/ios.device.build.mts"
+stress-tee = "cargo run --profile bin -p sdk -- stress-tee"
+ping-tee = "cargo run --profile bin -p sdk -- ping-tee"

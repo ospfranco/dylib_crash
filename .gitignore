@@ -1,0 +1,15 @@
+generated
+target
+cocoapod/Example/Pods/
+.DS_Store
+.build
+scripts/node_modules
+scripts/openssl*
+scripts/libs
+# .vscode
+node_modules
+scripts/*.log
+# output.log
+tls_test_server.log
+node_modules
+generated
